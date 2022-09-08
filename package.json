@@ -4,6 +4,8 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
+    "deploy": "serverless deploy",
+    "remove": "serverless remove",
     "start": "serverless offline",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,13 +15,17 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/tsamaya/aws-lambda-http-api-node-authorizer/issues"
   },
   "homepage": "https://github.com/tsamaya/aws-lambda-http-api-node-authorizer#readme",
   "devDependencies": {
+    "axios": "^0.27.2",
     "serverless": "^3.22.0",
     "serverless-offline": "^10.0.0"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
   }
 }

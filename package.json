@@ -1,0 +1,25 @@
+{
+  "name": "aws-lambda-http-api-node-authorizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "start": "serverless offline",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsamaya/aws-lambda-http-api-node-authorizer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsamaya/aws-lambda-http-api-node-authorizer/issues"
+  },
+  "homepage": "https://github.com/tsamaya/aws-lambda-http-api-node-authorizer#readme",
+  "devDependencies": {
+    "serverless": "^3.22.0",
+    "serverless-offline": "^10.0.0"
+  }
+}

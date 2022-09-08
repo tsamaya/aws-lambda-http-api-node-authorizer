@@ -1,3 +1,7 @@
+const jwt = require('jsonwebtoken');
+
+const { SECRET } = require('./secret');
+
 const getPolicyDocument = (effect, resource) => {
   const policyDocument = {
     Version: '2012-10-17', // default version
@@ -19,7 +23,9 @@ const getToken = (event) => {
 
   const tokenString = event.headers?.authorization;
   if (!tokenString) {
-    throw new Error('Expected "event.authorizationToken" parameter to be set');
+    throw new Error(
+      'Expected "event.headers.authorization" parameter to be set'
+    );
   }
 
   const match = tokenString.match(/^Bearer (.*)$/);
@@ -33,6 +39,18 @@ const getToken = (event) => {
 
 const authenticate = async (event) => {
   const token = getToken(event);
+  console.log('token', token);
+
+  const decoded = jwt.decode(token, { complete: true });
+  console.log('decoded', decoded);
+
+  if (!decoded || !decoded.header) {
+    // || !decoded.header.kid) {
+    throw new Error('invalid token');
+  }
+
+  jwt.verify(token, SECRET);
+
   return {
     principalId: 'foo.bar',
     policyDocument: getPolicyDocument('Allow', event.routeArn),

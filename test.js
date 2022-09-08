@@ -14,14 +14,14 @@ const token = jwt.sign(
 
 console.log(token);
 
-const run = async () => {
-  console.log('No Token');
-  try {
-    const res = await axios.get('http://localhost:3000/hello');
-    console.log('Result', JSON.stringify(res.data, null, 2));
-  } catch (error) {
-    console.error('Something went wrong', error);
-  }
-};
+// const run = async () => {
+//   console.log('No Token');
+//   try {
+//     const res = await axios.get('http://localhost:3000/hello');
+//     console.log('Result', JSON.stringify(res.data, null, 2));
+//   } catch (error) {
+//     console.error('Something went wrong', error);
+//   }
+// };
 
-run();
+// run();
